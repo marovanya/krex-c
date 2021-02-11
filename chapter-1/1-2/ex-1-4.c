@@ -3,22 +3,21 @@
 /* print Fahrenheit-Celsius table
    for fahr = 0, 20, ..., 300; floating-point version */
 
+#define LOWER 0     /* lower limit of table */
+#define UPPER 300   /* uppwe limit */
+#define STEP 20     /* step size */
+
 main()
 {
     float fahr, celsius;
-    float lower, upper, step;
-
-    lower = -20;       /* lower limit of temperature scale */
-    upper = 160;     /* upper limit */
-    step = 20;      /* step size */
 
     printf("Temp. convert!\n");
     printf("  C      F\n");
-    celsius = lower;
-    while (celsius <= upper)
+    celsius = LOWER;
+    while (celsius <= UPPER)
     {
         fahr = (celsius*(9.0/5.0)) + 32.0;
         printf("%3.0f %6.1f\n", celsius, fahr);
-        celsius = celsius + step;
+        celsius = celsius + STEP;
     }
 }

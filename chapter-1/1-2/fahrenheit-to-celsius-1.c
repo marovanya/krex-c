@@ -10,7 +10,6 @@
 main()
 {
     float fahr, celsius;
-    float lower, upper, step;
 
     fahr = LOWER;
     while (fahr <= UPPER)
