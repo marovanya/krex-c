@@ -1,5 +1,6 @@
 /* This is a program that reads a set of text lines and prints the
-   longest */
+   longest. correctly prints the length of arbitrarily long lines of text
+   and prints as much of it as it can*/
 
 #include <stdio.h>
 
@@ -29,6 +30,7 @@ main()
     if (max > 0)    /* there was a line */
     {
         printf("%s", longest);      /* %s makes an appearance! */
+        printf("\nlength: %d\n", max);
     }
 
     return 0;
@@ -37,11 +39,19 @@ main()
 /* getline: read a line into s, return length */
 int getline(char s[], int lim)
 {
-    int c, i;
+    int c;
+    long i;
 
     for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
     {
         s[i] = c;
+    }
+    if (c != EOF && c != '\n')
+    {
+        while (c = getchar() != EOF && c != '\n')
+        {
+            ++i;
+        }
     }
     if (c == '\n')
     {
